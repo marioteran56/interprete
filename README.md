@@ -34,13 +34,23 @@ t_PAR_DER = r'\)'
 t_EOL = r'\n'
 ```
 
+## Requerimientos
+
+Para poder ejecutar el proyecto se debe tener instalado lo siguiente:
+
+- Python 3
+- Streamlit
+- PLY
+
 ## Ejecución
 
-Para ejecutar el programa se debe ejecutar el siguiente comando:
+El proyecto está implementado para que sea ejecutado en un servidor de Streamlit, por lo que se debe ejecutar el siguiente comando:
 
 ```bash
-python3 interprete.py
+streamlit run app.py
 ```
+
+A lo que se abrirá una ventana en el navegador con la aplicación web.
 
 ## Ejemplos
 
@@ -94,5 +104,5 @@ Hubo un error sintactico...
 
 ## Streamlit
 
-Se puede acceder a la aplicación web en el siguiente [enlace](https://marioteran56-parser-app-nub83r.streamlit.app/).
+Se puede acceder a la aplicación web en el siguiente [enlace](https://marioteran56-interprete-app-8ikwf8.streamlit.app/).
 
