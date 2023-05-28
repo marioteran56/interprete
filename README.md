@@ -104,5 +104,4 @@ Hubo un error sintactico...
 
 ## Streamlit
 
-Se puede acceder a la aplicación web en el siguiente [enlace](https://marioteran56-interprete-app-8ikwf8.streamlit.app/).
-
+Se puede acceder a la aplicación web en el siguiente [enlace](https://marioteran56-interprete-app-t69v6f.streamlit.app/).
