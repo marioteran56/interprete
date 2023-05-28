@@ -1,0 +1,264 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> s
+Rule 1     s -> e EOL
+Rule 2     e -> e SUMA t
+Rule 3     e -> e RESTA t
+Rule 4     e -> t
+Rule 5     t -> t MULT f
+Rule 6     t -> t DIVI f
+Rule 7     t -> f
+Rule 8     f -> PAR_IZQ e PAR_DER
+Rule 9     f -> NUME
+
+Terminals, with rules where they appear
+
+DIVI                 : 6
+EOL                  : 1
+MULT                 : 5
+NUME                 : 9
+PAR_DER              : 8
+PAR_IZQ              : 8
+RESTA                : 3
+SUMA                 : 2
+error                : 
+
+Nonterminals, with rules where they appear
+
+e                    : 1 2 3 8
+f                    : 5 6 7
+s                    : 0
+t                    : 2 3 4 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . s
+    (1) s -> . e EOL
+    (2) e -> . e SUMA t
+    (3) e -> . e RESTA t
+    (4) e -> . t
+    (5) t -> . t MULT f
+    (6) t -> . t DIVI f
+    (7) t -> . f
+    (8) f -> . PAR_IZQ e PAR_DER
+    (9) f -> . NUME
+
+    PAR_IZQ         shift and go to state 5
+    NUME            shift and go to state 6
+
+    s                              shift and go to state 1
+    e                              shift and go to state 2
+    t                              shift and go to state 3
+    f                              shift and go to state 4
+
+state 1
+
+    (0) S' -> s .
+
+
+
+state 2
+
+    (1) s -> e . EOL
+    (2) e -> e . SUMA t
+    (3) e -> e . RESTA t
+
+    EOL             shift and go to state 7
+    SUMA            shift and go to state 8
+    RESTA           shift and go to state 9
+
+
+state 3
+
+    (4) e -> t .
+    (5) t -> t . MULT f
+    (6) t -> t . DIVI f
+
+    EOL             reduce using rule 4 (e -> t .)
+    SUMA            reduce using rule 4 (e -> t .)
+    RESTA           reduce using rule 4 (e -> t .)
+    PAR_DER         reduce using rule 4 (e -> t .)
+    MULT            shift and go to state 10
+    DIVI            shift and go to state 11
+
+
+state 4
+
+    (7) t -> f .
+
+    MULT            reduce using rule 7 (t -> f .)
+    DIVI            reduce using rule 7 (t -> f .)
+    EOL             reduce using rule 7 (t -> f .)
+    SUMA            reduce using rule 7 (t -> f .)
+    RESTA           reduce using rule 7 (t -> f .)
+    PAR_DER         reduce using rule 7 (t -> f .)
+
+
+state 5
+
+    (8) f -> PAR_IZQ . e PAR_DER
+    (2) e -> . e SUMA t
+    (3) e -> . e RESTA t
+    (4) e -> . t
+    (5) t -> . t MULT f
+    (6) t -> . t DIVI f
+    (7) t -> . f
+    (8) f -> . PAR_IZQ e PAR_DER
+    (9) f -> . NUME
+
+    PAR_IZQ         shift and go to state 5
+    NUME            shift and go to state 6
+
+    e                              shift and go to state 12
+    t                              shift and go to state 3
+    f                              shift and go to state 4
+
+state 6
+
+    (9) f -> NUME .
+
+    MULT            reduce using rule 9 (f -> NUME .)
+    DIVI            reduce using rule 9 (f -> NUME .)
+    EOL             reduce using rule 9 (f -> NUME .)
+    SUMA            reduce using rule 9 (f -> NUME .)
+    RESTA           reduce using rule 9 (f -> NUME .)
+    PAR_DER         reduce using rule 9 (f -> NUME .)
+
+
+state 7
+
+    (1) s -> e EOL .
+
+    $end            reduce using rule 1 (s -> e EOL .)
+
+
+state 8
+
+    (2) e -> e SUMA . t
+    (5) t -> . t MULT f
+    (6) t -> . t DIVI f
+    (7) t -> . f
+    (8) f -> . PAR_IZQ e PAR_DER
+    (9) f -> . NUME
+
+    PAR_IZQ         shift and go to state 5
+    NUME            shift and go to state 6
+
+    t                              shift and go to state 13
+    f                              shift and go to state 4
+
+state 9
+
+    (3) e -> e RESTA . t
+    (5) t -> . t MULT f
+    (6) t -> . t DIVI f
+    (7) t -> . f
+    (8) f -> . PAR_IZQ e PAR_DER
+    (9) f -> . NUME
+
+    PAR_IZQ         shift and go to state 5
+    NUME            shift and go to state 6
+
+    t                              shift and go to state 14
+    f                              shift and go to state 4
+
+state 10
+
+    (5) t -> t MULT . f
+    (8) f -> . PAR_IZQ e PAR_DER
+    (9) f -> . NUME
+
+    PAR_IZQ         shift and go to state 5
+    NUME            shift and go to state 6
+
+    f                              shift and go to state 15
+
+state 11
+
+    (6) t -> t DIVI . f
+    (8) f -> . PAR_IZQ e PAR_DER
+    (9) f -> . NUME
+
+    PAR_IZQ         shift and go to state 5
+    NUME            shift and go to state 6
+
+    f                              shift and go to state 16
+
+state 12
+
+    (8) f -> PAR_IZQ e . PAR_DER
+    (2) e -> e . SUMA t
+    (3) e -> e . RESTA t
+
+    PAR_DER         shift and go to state 17
+    SUMA            shift and go to state 8
+    RESTA           shift and go to state 9
+
+
+state 13
+
+    (2) e -> e SUMA t .
+    (5) t -> t . MULT f
+    (6) t -> t . DIVI f
+
+    EOL             reduce using rule 2 (e -> e SUMA t .)
+    SUMA            reduce using rule 2 (e -> e SUMA t .)
+    RESTA           reduce using rule 2 (e -> e SUMA t .)
+    PAR_DER         reduce using rule 2 (e -> e SUMA t .)
+    MULT            shift and go to state 10
+    DIVI            shift and go to state 11
+
+
+state 14
+
+    (3) e -> e RESTA t .
+    (5) t -> t . MULT f
+    (6) t -> t . DIVI f
+
+    EOL             reduce using rule 3 (e -> e RESTA t .)
+    SUMA            reduce using rule 3 (e -> e RESTA t .)
+    RESTA           reduce using rule 3 (e -> e RESTA t .)
+    PAR_DER         reduce using rule 3 (e -> e RESTA t .)
+    MULT            shift and go to state 10
+    DIVI            shift and go to state 11
+
+
+state 15
+
+    (5) t -> t MULT f .
+
+    MULT            reduce using rule 5 (t -> t MULT f .)
+    DIVI            reduce using rule 5 (t -> t MULT f .)
+    EOL             reduce using rule 5 (t -> t MULT f .)
+    SUMA            reduce using rule 5 (t -> t MULT f .)
+    RESTA           reduce using rule 5 (t -> t MULT f .)
+    PAR_DER         reduce using rule 5 (t -> t MULT f .)
+
+
+state 16
+
+    (6) t -> t DIVI f .
+
+    MULT            reduce using rule 6 (t -> t DIVI f .)
+    DIVI            reduce using rule 6 (t -> t DIVI f .)
+    EOL             reduce using rule 6 (t -> t DIVI f .)
+    SUMA            reduce using rule 6 (t -> t DIVI f .)
+    RESTA           reduce using rule 6 (t -> t DIVI f .)
+    PAR_DER         reduce using rule 6 (t -> t DIVI f .)
+
+
+state 17
+
+    (8) f -> PAR_IZQ e PAR_DER .
+
+    MULT            reduce using rule 8 (f -> PAR_IZQ e PAR_DER .)
+    DIVI            reduce using rule 8 (f -> PAR_IZQ e PAR_DER .)
+    EOL             reduce using rule 8 (f -> PAR_IZQ e PAR_DER .)
+    SUMA            reduce using rule 8 (f -> PAR_IZQ e PAR_DER .)
+    RESTA           reduce using rule 8 (f -> PAR_IZQ e PAR_DER .)
+    PAR_DER         reduce using rule 8 (f -> PAR_IZQ e PAR_DER .)
+
